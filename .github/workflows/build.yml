@@ -7,6 +7,12 @@ on:
       - main
       - master
 
+permissions:
+  contents: read
+  issues: read
+  checks: write
+  pull-requests: write
+
 jobs:
   build:
     # EXERCICE 6 : Définition de l'agent
@@ -29,6 +35,13 @@ jobs:
       # EXERCICE 7 : Exécution des tests automatisés (Shift-Left)
       - name: Exécution des tests unitaires
         run: npm test
+
+      # EXERCICE 9 (Bonus) : Publication des résultats des tests unitaires
+      - name: Publier les résultats des tests
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: junit.xml
 
       # EXERCICE 8 : Création de l'artefact
       - name: Génération de l'artefact final
