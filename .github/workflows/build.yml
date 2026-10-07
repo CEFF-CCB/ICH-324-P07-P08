@@ -21,3 +21,11 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '26'
+
+      # EXERCICE 7 : Résolution des dépendances (Stricte)
+      - name: Installation des dépendances via Lockfile
+        run: npm ci
+
+      # EXERCICE 7 : Exécution des tests automatisés (Shift-Left)
+      - name: Exécution des tests unitaires
+        run: npm test
