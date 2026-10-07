@@ -1,0 +1,23 @@
+name: CI Build Pipeline
+
+# EXERCICE 6 : Déclencheur
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    # EXERCICE 6 : Définition de l'agent
+    runs-on: ubuntu-latest
+
+    steps:
+      # EXERCICE 6 : Checkout du code et configuration de l'environnement
+      - name: Récupération du code source
+        uses: actions/checkout@v5
+
+      - name: Configuration de Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '26'
