@@ -29,3 +29,13 @@ jobs:
       # EXERCICE 7 : Exécution des tests automatisés (Shift-Left)
       - name: Exécution des tests unitaires
         run: npm test
+
+      # EXERCICE 8 : Création de l'artefact
+      - name: Génération de l'artefact final
+        uses: actions/upload-artifact@v5
+        with:
+          name: build-artifact
+          path: |
+            index.js
+            package.json
+            junit.xml
